@@ -95,7 +95,7 @@ const heroImage =
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-gold-500" />
-              <span>Fatih / İstanbul Medrese Merkezi</span>
+              <span>Bornova / İzmir Medrese Merkezi</span>
             </div>
           </div>
         </div>

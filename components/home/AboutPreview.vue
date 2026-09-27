@@ -74,7 +74,7 @@ function getIconForIndex(idx: number) {
           />
 
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
-            {{ page.intro || "İstanbul Fatih'in manevi atmosferinde kurulan derneğimiz; ilim talebelerine burs ve barınma desteği sağlamaktan düzenli ders halkalarına, neşriyat faaliyetlerinden hayri hizmetlere kadar geniş bir yelpazede hizmet vermektedir." }}
+            {{ page.intro || "İzmir Bornova'da faaliyet gösteren derneğimiz; ilim talebelerine burs ve barınma desteği sağlamaktan düzenli ders halkalarına, neşriyat faaliyetlerinden hayri hizmetlere kadar geniş bir yelpazede hizmet vermektedir." }}
           </p>
 
           <div class="pt-2">

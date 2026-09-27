@@ -482,7 +482,7 @@ useHead({
         </h2>
 
         <p class="text-sm sm:text-base text-emerald-100/80 max-w-xl mx-auto font-light leading-relaxed">
-          İstanbul Fatih'teki medresemizi ziyaret edebilir, haftalık ders halkalarımıza katılabilir ve faaliyetlerimize destek olabilirsiniz.
+          İzmir Bornova'daki medresemizi ziyaret edebilir, haftalık ders halkalarımıza katılabilir ve faaliyetlerimize destek olabilirsiniz.
         </p>
 
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

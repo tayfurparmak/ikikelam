@@ -20,7 +20,7 @@ export const DONATION_ACCOUNTS: BankAccount[] = [
     bankName: 'Kuveyt Türk Katılım Bankası',
     accountHolder: 'İki Kelam İlim ve Kültür Derneği',
     iban: 'TR12 0020 5000 0123 4567 8901 01',
-    branchCode: '205 - Fatih Şubesi',
+    branchCode: 'Bornova Şubesi',
     accountNumber: '12345678-1',
   },
   {
@@ -31,7 +31,7 @@ export const DONATION_ACCOUNTS: BankAccount[] = [
     bankName: 'Kuveyt Türk Katılım Bankası',
     accountHolder: 'İki Kelam İlim ve Kültür Derneği',
     iban: 'TR12 0020 5000 0123 4567 8901 02',
-    branchCode: '205 - Fatih Şubesi',
+    branchCode: 'Bornova Şubesi',
     swiftCode: 'KTEFTRISXXX',
   },
   {
@@ -42,7 +42,7 @@ export const DONATION_ACCOUNTS: BankAccount[] = [
     bankName: 'Kuveyt Türk Katılım Bankası',
     accountHolder: 'İki Kelam İlim ve Kültür Derneği',
     iban: 'TR12 0020 5000 0123 4567 8901 03',
-    branchCode: '205 - Fatih Şubesi',
+    branchCode: 'Bornova Şubesi',
     swiftCode: 'KTEFTRISXXX',
   },
 ]

@@ -190,7 +190,7 @@ function getIconForPath(path: string) {
         <div class="p-5 border-t border-paper-300 bg-paper-200/60 text-xs text-slate-600 space-y-3">
           <div class="flex items-start gap-2.5">
             <MapPin class="w-4 h-4 text-emerald-800 shrink-0 mt-0.5" />
-            <span>Fatih, İstanbul / Türkiye</span>
+            <span>{{ settings.district && settings.city ? `${settings.district}, ${settings.city}` : 'Bornova, İzmir / Türkiye' }}</span>
           </div>
           <div class="flex items-center gap-2.5">
             <Mail class="w-4 h-4 text-emerald-800 shrink-0" />

@@ -171,13 +171,13 @@ model ContactSettings {
   id                    String   @id @default(cuid())
   organizationName      String   @default("İki Kelam İlim ve Kültür Derneği")
   description           String?  @db.Text
-  phone                 String?  @default("+90 500 000 00 00")
-  whatsapp              String?  @default("+90 500 000 00 00")
+  phone                 String?  @default("0541 155 74 01")
+  whatsapp              String?  @default("+905411557401")
   email                 String?  @default("bilgi@ikikelam.org.tr")
-  address               String?  @default("Ali Kuşçu Mah. Medrese Sok. No: 12")
-  district              String?  @default("Fatih")
-  city                  String?  @default("İstanbul")
-  postalCode            String?  @default("34083")
+  address               String?  @default("Gürpınar, Çakabey Cd. 40/a")
+  district              String?  @default("Bornova")
+  city                  String?  @default("İzmir")
+  postalCode            String?  @default("35060")
   googleMapsUrl         String?  @db.Text
   googleMapsEmbedUrl    String?  @db.Text
   transportationPublic  String?  @db.Text

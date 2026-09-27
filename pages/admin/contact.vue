@@ -307,7 +307,7 @@ async function handleSave() {
             <input
               v-model="form.address"
               type="text"
-              placeholder="Ali Kuşçu Mah. Medrese Sok. No: 12"
+              placeholder="Gürpınar, Çakabey Cd. 40/a"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
           </div>
@@ -319,7 +319,7 @@ async function handleSave() {
             <input
               v-model="form.district"
               type="text"
-              placeholder="Fatih"
+              placeholder="Bornova"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
           </div>
@@ -331,7 +331,7 @@ async function handleSave() {
             <input
               v-model="form.city"
               type="text"
-              placeholder="İstanbul"
+              placeholder="İzmir"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
           </div>
@@ -343,7 +343,7 @@ async function handleSave() {
             <input
               v-model="form.postalCode"
               type="text"
-              placeholder="34083"
+              placeholder="35060"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
           </div>
@@ -374,7 +374,7 @@ async function handleSave() {
             <input
               v-model="form.googleMapsUrl"
               type="url"
-              placeholder="https://maps.google.com/?q=Fatih+Istanbul"
+              placeholder="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14b9659d91b2e59f:0x46bb50e2b956af15?sa=X&ved=1t:8290&ictx=111"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
             <p class="text-[11px] text-slate-400 mt-1">
@@ -389,7 +389,7 @@ async function handleSave() {
             <input
               v-model="form.googleMapsEmbedUrl"
               type="url"
-              placeholder="https://maps.google.com/maps?q=Fatih+Istanbul&output=embed"
+              placeholder="https://maps.google.com/maps?q=G%C3%BCrp%C4%B1nar,+%C3%87akabey+Cd.+40/a,+35060+Bornova/%C4%B0zmir&output=embed"
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             >
             <p v-if="!isEmbedUrlValid" class="text-[11px] text-red-500 mt-1 flex items-center gap-1">
@@ -441,7 +441,7 @@ async function handleSave() {
             <textarea
               v-model="form.transportationPublic"
               rows="2"
-              placeholder="M1 Emniyet-Fatih durağına 8 dakika, T1 Fındıkzade durağına 10 dakika yürüme mesafesindedir..."
+              placeholder="İzmir Metrosu Bornova veya Evka 3 aktarma merkezinden kalkan ESHOT otobüsleri ve minibüslerle..."
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             />
           </div>
@@ -453,7 +453,7 @@ async function handleSave() {
             <textarea
               v-model="form.transportationPrivate"
               rows="2"
-              placeholder="Fatih Camii avlusu ve çevresindeki İSPARK açık/kapalı otopark alanlarını kullanabilirsiniz..."
+              placeholder="Çakabey Caddesi ve çevresindeki sokak üstü park alanları ile açık otopark noktaları kullanılabilir..."
               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700"
             />
           </div>

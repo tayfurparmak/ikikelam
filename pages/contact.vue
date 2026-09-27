@@ -54,38 +54,38 @@ const settings = computed(() => contactRes.value?.data || {
   id: '',
   organizationName: 'İki Kelam İlim ve Kültür Derneği',
   description: 'İki Kelam İlim ve Kültür Derneği adres, telefon, e-posta, Google Maps konum ve toplu taşıma ulaşım bilgileri.',
-  phone: '+90 500 000 00 00',
-  whatsapp: '+90 500 000 00 00',
+  phone: '0541 155 74 01',
+  whatsapp: '+905411557401',
   email: 'bilgi@ikikelam.org.tr',
-  address: 'Ali Kuşçu Mah. Medrese Sok. No: 12',
-  district: 'Fatih',
-  city: 'İstanbul',
-  postalCode: '34083',
-  googleMapsUrl: 'https://maps.google.com/?q=Fatih+Istanbul',
-  googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Fatih+Istanbul&output=embed',
-  transportationPublic: 'M1 Emniyet-Fatih durağına 8 dakika, T1 Fındıkzade durağına 10 dakika yürüme mesafesindedir.',
-  transportationPrivate: 'Fatih Camii avlusu ve çevresindeki İSPARK açık/kapalı otopark alanlarını kullanabilirsiniz.',
-  transportationNotes: 'Cuma günleri ve kandil gecelerinde medrese çevresi araç trafiğine kısmen kapalı olabilir.',
+  address: 'Gürpınar, Çakabey Cd. 40/a',
+  district: 'Bornova',
+  city: 'İzmir',
+  postalCode: '35060',
+  googleMapsUrl: 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x14b9659d91b2e59f:0x46bb50e2b956af15?sa=X&ved=1t:8290&ictx=111',
+  googleMapsEmbedUrl: 'https://maps.google.com/maps?q=G%C3%BCrp%C4%B1nar,+%C3%87akabey+Cd.+40/a,+35060+Bornova/%C4%B0zmir&t=&z=16&ie=UTF8&iwloc=&output=embed',
+  transportationPublic: 'İzmir Metrosu Bornova veya Evka 3 aktarma istasyonlarından kalkan ESHOT otobüsleri ve minibüs hatları.',
+  transportationPrivate: 'Çakabey Caddesi üzerinde ve bina çevresinde araç park alanları mevcuttur.',
+  transportationNotes: 'Haftalık sohbet meclislerimizde salonumuz erken saatlerde dolabilmektedir.',
   visitDays: 'Pazartesi – Cumartesi',
   visitHours: '10:00 – 20:00 (Namaz vakitleri hariç)',
   youtubeUrl: 'https://www.youtube.com/@ikikelamresmi',
   instagramUrl: 'https://instagram.com/ikikelamresmi',
 })
 
-const phone = computed(() => settings.value.phone || '+90 500 000 00 00')
-const whatsapp = computed(() => settings.value.whatsapp || phone.value)
+const phone = computed(() => settings.value.phone || '0541 155 74 01')
+const whatsapp = computed(() => settings.value.whatsapp || '+905411557401')
 const email = computed(() => settings.value.email || 'bilgi@ikikelam.org.tr')
 const formattedAddress = computed(() => {
   const parts = [settings.value.address, settings.value.district, settings.value.city].filter(Boolean)
-  return parts.join(', ') || 'Ali Kuşçu Mah. Medrese Sok. No: 12, Fatih / İstanbul'
+  return parts.join(', ') || 'Gürpınar, Çakabey Cd. 40/a, Bornova / İzmir'
 })
-const mapsUrl = computed(() => settings.value.googleMapsUrl || 'https://maps.google.com/?q=Fatih+Istanbul')
+const mapsUrl = computed(() => settings.value.googleMapsUrl || 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x14b9659d91b2e59f:0x46bb50e2b956af15?sa=X&ved=1t:8290&ictx=111')
 
 // Sanitize embed URL to only allow legitimate Google Maps domains
 const safeEmbedUrl = computed(() => {
   const url = settings.value.googleMapsEmbedUrl
   if (!url) {
-    return 'https://maps.google.com/maps?q=Fatih+Mosque+Istanbul&t=&z=15&ie=UTF8&iwloc=&output=embed'
+    return 'https://maps.google.com/maps?q=G%C3%BCrp%C4%B1nar,+%C3%87akabey+Cd.+40/a,+35060+Bornova/%C4%B0zmir&t=&z=16&ie=UTF8&iwloc=&output=embed'
   }
   try {
     const parsed = new URL(url)
@@ -101,7 +101,7 @@ const safeEmbedUrl = computed(() => {
   } catch {
     // invalid URL format
   }
-  return 'https://maps.google.com/maps?q=Fatih+Mosque+Istanbul&t=&z=15&ie=UTF8&iwloc=&output=embed'
+  return 'https://maps.google.com/maps?q=G%C3%BCrp%C4%B1nar,+%C3%87akabey+Cd.+40/a,+35060+Bornova/%C4%B0zmir&t=&z=16&ie=UTF8&iwloc=&output=embed'
 })
 
 useSeoMeta({
@@ -110,14 +110,14 @@ useSeoMeta({
     'İki Kelam İlim ve Kültür Derneği adres, telefon, e-posta, Google Maps konum ve toplu taşıma ulaşım bilgileri.',
   ogTitle: 'İletişim & Konum — İki Kelam',
   ogDescription:
-    'Fatih medresemizi ziyaret edebilir veya iletişim formumuz üzerinden bize sorularınızı iletebilirsiniz.',
+    'Bornova/İzmir medresemizi ziyaret edebilir veya iletişim formumuz üzerinden bize sorularınızı iletebilirsiniz.',
   ogType: 'website',
   ogUrl: `${siteUrl}/contact`,
   ogImage: `${siteUrl}/logo.svg`,
   twitterCard: 'summary_large_image',
   twitterTitle: 'İletişim & Konum — İki Kelam',
   twitterDescription:
-    'Fatih medresemizi ziyaret edebilir veya iletişim formumuz üzerinden bize sorularınızı iletebilirsiniz.',
+    'Bornova/İzmir medresemizi ziyaret edebilir veya iletişim formumuz üzerinden bize sorularınızı iletebilirsiniz.',
   twitterImage: `${siteUrl}/logo.svg`,
 })
 
@@ -133,10 +133,10 @@ useHead({
           name: settings.value.organizationName || 'İki Kelam Medresesi',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: settings.value.address || 'Ali Kuşçu Mah. Medrese Sok. No: 12',
-            addressLocality: settings.value.district || 'Fatih',
-            addressRegion: settings.value.city || 'İstanbul',
-            postalCode: settings.value.postalCode || '34083',
+            streetAddress: settings.value.address || 'Gürpınar, Çakabey Cd. 40/a',
+            addressLocality: settings.value.district || 'Bornova',
+            addressRegion: settings.value.city || 'İzmir',
+            postalCode: settings.value.postalCode || '35060',
             addressCountry: 'TR',
           },
           telephone: phone.value,
@@ -351,23 +351,23 @@ async function handleSubmit() {
               <div v-else class="flex items-start gap-3">
                 <Train class="w-4 h-4 text-emerald-800 shrink-0 mt-0.5" />
                 <div>
-                  <strong class="font-semibold text-navy-900">Metro / Tramvay:</strong>
-                  M1 Emniyet-Fatih durağına 8 dakika, T1 Fındıkzade durağına 10 dakika yürüme mesafesindedir.
+                  <strong class="font-semibold text-obsidian-950">Toplu Taşıma:</strong>
+                  İzmir Metrosu Bornova veya Evka 3 aktarma istasyonlarından kalkan ESHOT otobüsleri ve minibüslerle Çakabey Caddesi durağına ulaşabilirsiniz.
                 </div>
               </div>
 
               <div v-if="settings.transportationPrivate" class="flex items-start gap-3">
                 <Car class="w-4 h-4 text-emerald-800 shrink-0 mt-0.5" />
                 <div>
-                  <strong class="font-semibold text-navy-900">Özel Araç & Otopark:</strong>
+                  <strong class="font-semibold text-obsidian-950">Özel Araç & Otopark:</strong>
                   <span class="ml-1">{{ settings.transportationPrivate }}</span>
                 </div>
               </div>
               <div v-else class="flex items-start gap-3">
                 <Car class="w-4 h-4 text-emerald-800 shrink-0 mt-0.5" />
                 <div>
-                  <strong class="font-semibold text-navy-900">Özel Araç & Otopark:</strong>
-                  Fatih Camii avlusu ve çevresindeki İSPARK açık/kapalı otopark alanlarını kullanabilirsiniz.
+                  <strong class="font-semibold text-obsidian-950">Özel Araç & Otopark:</strong>
+                  Çakabey Caddesi üzerinde ve bina çevresinde araç park imkânı bulunmaktadır.
                 </div>
               </div>
 

@@ -27,11 +27,11 @@ const quickLinks = [
 
 const youtubeUrl = computed(() => settings.value.youtubeUrl || 'https://www.youtube.com/@ikikelamresmi')
 const instagramUrl = computed(() => settings.value.instagramUrl || 'https://instagram.com/ikikelamresmi')
-const phone = computed(() => settings.value.phone || '+90 500 000 00 00')
+const phone = computed(() => settings.value.phone || '0541 155 74 01')
 const email = computed(() => settings.value.email || 'bilgi@ikikelam.org.tr')
 const address = computed(() => {
   const parts = [settings.value.address, settings.value.district, settings.value.city].filter(Boolean)
-  return parts.join(', ') || 'Ali Kuşçu Mah. Medrese Sok. No: 12, Fatih / İstanbul'
+  return parts.join(', ') || 'Gürpınar, Çakabey Cd. 40/a, Bornova / İzmir'
 })
 </script>
 
