@@ -54,82 +54,82 @@ function isRouteActive(path: string) {
     class="sticky top-0 z-40 w-full transition-all duration-300"
     :class="[
       isScrolled
-        ? 'bg-warm-white/95 backdrop-blur-md shadow-sm border-b border-cream-300/80 py-2.5'
-        : 'bg-warm-white/80 backdrop-blur-sm border-b border-cream-200/50 py-3.5',
+        ? 'glass-nav shadow-soft border-b border-paper-300/80 py-2.5'
+        : 'bg-paper-100/80 backdrop-blur-md border-b border-paper-300/50 py-3.5',
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
-        <!-- Logo -->
+        <!-- Logo with subtle hover micro-interaction -->
         <NuxtLink
           to="/"
-          class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 rounded-lg p-0.5"
+          class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-xl p-1 transition-transform duration-200 group-hover:scale-[1.02]"
           aria-label="İki Kelam Ana Sayfa"
         >
           <AppLogo size="md" :show-subtitle="true" />
         </NuxtLink>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Ana Gezinme Menüsü">
+        <nav class="hidden lg:flex items-center gap-1.5 xl:gap-2" aria-label="Ana Gezinme Menüsü">
           <NuxtLink
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="relative px-3.5 py-2 rounded-lg text-sm font-medium transition-colors select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"
+            class="relative px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
             :class="[
               isRouteActive(item.path)
-                ? 'text-emerald-900 font-semibold bg-emerald-50/80'
-                : 'text-navy-900/80 hover:text-emerald-900 hover:bg-cream-100/70',
+                ? 'text-obsidian-950 font-bold bg-white shadow-soft border border-paper-300/70'
+                : 'text-slate-600 hover:text-obsidian-950 hover:bg-paper-200/80',
             ]"
           >
             {{ item.name }}
             <span
               v-if="isRouteActive(item.path)"
-              class="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-emerald-800 rounded-full"
+              class="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-gold-400 via-amber-500 to-gold-400 rounded-full"
               aria-hidden="true"
             />
           </NuxtLink>
         </nav>
 
         <!-- Right Side: Social Icons, Vurgulu "Bağış Yap" & Mobile Menu Toggle -->
-        <div class="flex items-center gap-2 sm:gap-2.5">
+        <div class="flex items-center gap-2 sm:gap-3">
           <!-- Minimal Social Icons (Desktop) -->
-          <div class="hidden md:flex items-center gap-1 mr-1">
+          <div class="hidden md:flex items-center gap-1.5 mr-1">
             <a
               :href="settings.youtubeUrl || 'https://www.youtube.com/@ikikelamresmi'"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-lg text-slate-500 hover:text-red-600 hover:bg-cream-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"
+              class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-white hover:bg-red-600 bg-white/70 border border-paper-300/60 transition-all duration-200 shadow-2xs group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
               aria-label="İki Kelam YouTube Kanalı"
               title="İki Kelam YouTube Kanalı"
             >
-              <IconYoutube class="w-4 h-4" />
+              <IconYoutube class="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
             <a
               :href="settings.instagramUrl || 'https://instagram.com/ikikelamresmi'"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-lg text-slate-500 hover:text-pink-600 hover:bg-cream-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"
+              class="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 bg-white/70 border border-paper-300/60 transition-all duration-200 shadow-2xs group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
               aria-label="İki Kelam Instagram Hesabı"
               title="İki Kelam Instagram Hesabı"
             >
-              <IconInstagram class="w-4 h-4" />
+              <IconInstagram class="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
           </div>
 
           <!-- Bağış Yap Button (Desktop) -->
           <NuxtLink
             to="/donation"
-            class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold text-white shadow-sm bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 select-none"
+            class="hidden sm:inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl text-xs md:text-sm font-bold text-obsidian-950 shadow-soft hover:shadow-gold bg-gradient-to-r from-gold-300 via-amber-400 to-gold-400 hover:from-amber-400 hover:to-gold-500 active:scale-[0.98] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 select-none border border-gold-400/40"
           >
-            <Heart class="w-4 h-4 fill-current text-white/90" />
+            <Heart class="w-4 h-4 fill-obsidian-900 text-obsidian-900 transition-transform hover:scale-110" />
             <span>Bağış Yap</span>
           </NuxtLink>
 
-          <!-- Mobile Hamburger Toggle -->
+          <!-- Mobile Hamburger Toggle (44px touch target) -->
           <button
             type="button"
-            class="lg:hidden p-2 rounded-lg text-navy-900 hover:bg-cream-200/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 transition-colors"
+            class="lg:hidden p-2.5 rounded-xl text-obsidian-900 bg-white/80 border border-paper-300/80 hover:bg-paper-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 transition-all shadow-xs touch-target flex items-center justify-center"
             aria-label="Menüyü Aç"
             :aria-expanded="isMobileMenuOpen"
             @click="isMobileMenuOpen = true"

@@ -5,7 +5,7 @@ import WhatsAppButton from '~/components/common/WhatsAppButton.vue'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-warm-white text-navy font-sans antialiased selection:bg-emerald-800 selection:text-white">
+  <div class="min-h-screen flex flex-col bg-paper-100 text-obsidian-950 font-sans antialiased selection:bg-gold-400 selection:text-obsidian-950">
     <!-- Sticky Header -->
     <Navbar />
 

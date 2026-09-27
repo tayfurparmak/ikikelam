@@ -60,13 +60,14 @@ function getIconForIndex(idx: number) {
 </script>
 
 <template>
-  <section v-if="page.isActive !== false" class="py-16 sm:py-24 bg-white border-b border-cream-200">
+  <section v-if="page.isActive !== false" class="py-16 sm:py-24 bg-white border-b border-paper-300/80">
     <Container size="xl">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <!-- Left: Text & Pitch (lg:col-span-6) -->
         <div class="lg:col-span-6 space-y-6">
           <SectionTitle
             badge="Biz Kimiz?"
+            badge-variant="gold"
             :title="page.title ? `${page.title}` : 'Asırların Mirasını İhlasla Geleceğe Taşıyoruz'"
             :subtitle="page.subtitle || 'İki Kelam, ilmin izzetini muhafaza ederek medrese geleneğini bugünün ihtiyaçlarıyla buluşturan bir ilim ve kültür hareketidir.'"
             align="left"
@@ -82,6 +83,7 @@ function getIconForIndex(idx: number) {
               variant="outline"
               size="md"
               :icon-right="ArrowRight"
+              class="border-gold-500/70 hover:bg-gold-50/60 text-obsidian-900"
             >
               {{ page.buttonText || 'Daha Fazla Bilgi' }}
             </Button>
@@ -93,16 +95,16 @@ function getIconForIndex(idx: number) {
           <div
             v-for="(val, idx) in values"
             :key="val.title"
-            class="p-6 rounded-2xl bg-cream-50/80 border border-cream-200/90 shadow-xs hover:shadow-sm hover:border-emerald-700/40 transition-all flex items-start gap-4"
+            class="p-6 rounded-2xl sm:rounded-3xl bg-paper-100/80 border border-paper-300/90 shadow-soft hover:shadow-card-hover hover:border-gold-400/60 transition-all duration-300 flex items-start gap-4 sm:gap-5 group"
           >
-            <div class="w-12 h-12 rounded-xl bg-emerald-800 text-gold-400 flex items-center justify-center shrink-0 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-white border border-paper-300 text-gold-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-gold-400 group-hover:text-obsidian-950 transition-all duration-300">
               <component :is="getIconForIndex(idx)" class="w-6 h-6" />
             </div>
 
             <div class="space-y-1">
-              <h4 class="font-serif text-lg font-bold text-navy-950">
+              <h3 class="font-serif text-lg sm:text-xl font-bold text-obsidian-950 group-hover:text-amber-800 transition-colors">
                 {{ val.title }}
-              </h4>
+              </h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                 {{ val.description }}
               </p>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import HeroSection from '~/components/home/HeroSection.vue'
 import AboutPreview from '~/components/home/AboutPreview.vue'
+import HomeActivitiesPreview from '~/components/home/HomeActivitiesPreview.vue'
 import WeeklySchedulePreview from '~/components/home/WeeklySchedulePreview.vue'
 import QuoteOfTheDay from '~/components/home/QuoteOfTheDay.vue'
-import LatestPosts from '~/components/home/LatestPosts.vue'
 import HomeVideoSection from '~/components/home/HomeVideoSection.vue'
+import LatestPosts from '~/components/home/LatestPosts.vue'
+import HomeGalleryPreview from '~/components/home/HomeGalleryPreview.vue'
 import DonationHighlight from '~/components/home/DonationHighlight.vue'
 import SocialCTASection from '~/components/home/SocialCTASection.vue'
 import CTASection from '~/components/home/CTASection.vue'
@@ -85,35 +87,41 @@ useHead({
 </script>
 
 <template>
-  <main class="min-h-screen bg-warm-white">
+  <main class="min-h-screen bg-paper-100">
     <!-- 1. Hero Bölümü -->
     <HeroSection />
 
-    <!-- 2. Biz Kimiz? (Hakkımızda Özeti) -->
+    <!-- 2. Biz Kimiz? (Hakkımızda & Değerler Özeti) -->
     <AboutPreview />
 
-    <!-- 3. Haftalık Program & Ders Meclisleri (Database Bağlantılı) -->
+    <!-- 3. Medrese Faaliyetlerimiz & Hizmetler -->
+    <HomeActivitiesPreview />
+
+    <!-- 4. Haftalık Program & Ders Meclisleri (Database Bağlantılı) -->
     <WeeklySchedulePreview />
 
-    <!-- 4. Âyet / Hadîs / Kelâm-ı Kibâr Hikmet Köşesi -->
+    <!-- 5. Âyet / Hadîs / Kelâm-ı Kibâr Hikmet Köşesi -->
     <QuoteOfTheDay />
-
-    <!-- 5. Son Faaliyetler & Makaleler (Database Bağlantılı) -->
-    <LatestPosts />
 
     <!-- 6. Seçilmiş YouTube Videosu (Database Bağlantılı & Facade Player) -->
     <HomeVideoSection />
 
-    <!-- 7. Hayır ve Bağış (IBAN ve Destek Alanı) -->
+    <!-- 7. Son Faaliyetler & Makaleler (Database Bağlantılı) -->
+    <LatestPosts />
+
+    <!-- 8. Medrese Hayatı & Galeri Önizleme -->
+    <HomeGalleryPreview />
+
+    <!-- 9. Hayır ve Bağış (IBAN ve Destek Alanı) -->
     <DonationHighlight />
 
-    <!-- 8. Sosyal Medya Eylem Çağrısı (YouTube & Instagram) -->
+    <!-- 10. Sosyal Medya Eylem Çağrısı (YouTube & Instagram) -->
     <SocialCTASection
       :youtube-url="settings.youtubeUrl || 'https://www.youtube.com/@ikikelamresmi'"
       :instagram-url="settings.instagramUrl || 'https://instagram.com/ikikelamresmi'"
     />
 
-    <!-- 9. Nihai Eylem Çağrısı (CTA) -->
+    <!-- 11. Nihai Eylem Çağrısı (CTA) -->
     <CTASection />
   </main>
 </template>

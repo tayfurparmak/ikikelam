@@ -42,29 +42,29 @@ const isExternal = computed(() => !!props.href && !props.disabled)
     :rel="isExternal ? 'noopener noreferrer' : undefined"
     :type="!isNuxtLink && !isExternal ? type : undefined"
     :disabled="disabled || loading"
-    class="inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100"
+    class="inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100"
     :class="[
       // Width
       block ? 'w-full' : 'w-auto',
 
-      // Sizing
-      size === 'sm' && 'text-xs px-3.5 py-1.5 gap-1.5 min-h-[34px]',
-      size === 'md' && 'text-sm px-5 py-2.5 gap-2 min-h-[42px]',
-      size === 'lg' && 'text-base px-6 py-3.5 gap-2.5 min-h-[50px]',
+      // Sizing (mobile-first touch targets: md is 44px)
+      size === 'sm' && 'text-xs px-3.5 py-2 gap-1.5 min-h-[36px]',
+      size === 'md' && 'text-sm px-5 py-2.5 gap-2 min-h-[44px]',
+      size === 'lg' && 'text-base px-6 py-3.5 gap-2.5 min-h-[52px]',
 
       // Variants
       variant === 'primary' &&
-        'bg-emerald-800 hover:bg-emerald-900 text-white shadow-sm hover:shadow focus-visible:ring-emerald-700',
+        'bg-emerald-800 hover:bg-emerald-900 text-white shadow-soft hover:shadow-emerald focus-visible:ring-emerald-700',
       variant === 'navy' &&
-        'bg-navy-900 hover:bg-navy-950 text-white shadow-sm hover:shadow focus-visible:ring-navy-800',
+        'bg-obsidian-900 hover:bg-obsidian-950 text-white shadow-soft focus-visible:ring-obsidian-700',
       variant === 'gold' &&
-        'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold shadow-sm hover:shadow-md focus-visible:ring-amber-500',
+        'bg-gradient-to-r from-gold-400 via-amber-500 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-obsidian-950 font-bold shadow-soft hover:shadow-gold focus-visible:ring-gold-400',
       variant === 'secondary' &&
-        'bg-cream-200 hover:bg-cream-300/80 text-navy-900 border border-cream-300 focus-visible:ring-cream-300',
+        'bg-paper-200 hover:bg-paper-300/80 text-obsidian-900 border border-paper-300 focus-visible:ring-paper-300',
       variant === 'outline' &&
-        'bg-transparent border border-emerald-800/80 hover:bg-emerald-50 text-emerald-900 focus-visible:ring-emerald-700',
+        'bg-transparent border border-emerald-800/80 hover:bg-emerald-50/80 text-emerald-900 focus-visible:ring-emerald-700',
       variant === 'ghost' &&
-        'bg-transparent hover:bg-slate-100 text-slate-700 hover:text-navy-900 focus-visible:ring-slate-300',
+        'bg-transparent hover:bg-paper-200 text-slate-700 hover:text-obsidian-950 focus-visible:ring-paper-300',
     ]"
   >
     <!-- Loading Spinner -->

@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 interface Props {
   badge?: string
+  tag?: string
   title: string
   subtitle?: string
   align?: 'left' | 'center' | 'right'
@@ -9,14 +12,17 @@ interface Props {
   inverted?: boolean
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   badge: undefined,
+  tag: undefined,
   subtitle: undefined,
   align: 'center',
-  badgeVariant: 'emerald',
+  badgeVariant: 'gold',
   titleTag: 'h2',
   inverted: false,
 })
+
+const activeBadge = computed(() => props.badge || props.tag)
 </script>
 
 <template>
@@ -30,25 +36,25 @@ withDefaults(defineProps<Props>(), {
   >
     <!-- Badge / Eyebrow -->
     <div
-      v-if="badge"
-      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-3 transition-colors select-none"
+      v-if="activeBadge"
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-3.5 transition-all select-none shadow-xs"
       :class="[
-        !inverted && badgeVariant === 'emerald' && 'bg-emerald-50 text-emerald-800 border border-emerald-200/60',
-        !inverted && badgeVariant === 'gold' && 'bg-gold-50 text-gold-900 border border-gold-200/70',
-        !inverted && badgeVariant === 'navy' && 'bg-navy-50 text-navy-800 border border-navy-200/70',
-        inverted && 'bg-white/10 text-white/90 border border-white/15 backdrop-blur-sm',
+        !inverted && badgeVariant === 'emerald' && 'bg-emerald-50/90 text-emerald-900 border border-emerald-200/80',
+        !inverted && badgeVariant === 'gold' && 'bg-gold-50/90 text-amber-950 border border-gold-200/80',
+        !inverted && badgeVariant === 'navy' && 'bg-obsidian-100 text-obsidian-900 border border-obsidian-200',
+        inverted && 'bg-white/10 text-white/95 border border-white/20 backdrop-blur-md',
       ]"
     >
       <span
-        class="w-1.5 h-1.5 rounded-full"
+        class="w-1.5 h-1.5 rounded-full animate-pulse"
         :class="[
           badgeVariant === 'emerald' && 'bg-emerald-600',
-          badgeVariant === 'gold' && 'bg-gold-600',
-          badgeVariant === 'navy' && 'bg-navy-600',
+          badgeVariant === 'gold' && 'bg-gold-500',
+          badgeVariant === 'navy' && 'bg-obsidian-700',
           inverted && 'bg-gold-400',
         ]"
       />
-      <span>{{ badge }}</span>
+      <span>{{ activeBadge }}</span>
     </div>
 
     <!-- Main Heading -->
@@ -59,7 +65,7 @@ withDefaults(defineProps<Props>(), {
         titleTag === 'h1' && 'text-3xl sm:text-4xl lg:text-5xl',
         titleTag === 'h2' && 'text-2xl sm:text-3xl lg:text-4xl',
         titleTag === 'h3' && 'text-xl sm:text-2xl lg:text-3xl',
-        inverted ? 'text-white' : 'text-navy-950',
+        inverted ? 'text-white' : 'text-obsidian-900',
       ]"
     >
       {{ title }}
@@ -67,20 +73,20 @@ withDefaults(defineProps<Props>(), {
 
     <!-- Decorative Accent Line -->
     <div
-      class="h-0.5 mt-3.5 mb-3 rounded-full"
+      class="h-1 mt-4 mb-3.5 rounded-full"
       :class="[
-        align === 'center' && 'w-12 mx-auto',
-        align === 'left' && 'w-12',
-        align === 'right' && 'w-12 ml-auto',
-        inverted ? 'bg-gold-400/70' : 'bg-emerald-700/60',
+        align === 'center' && 'w-16 mx-auto',
+        align === 'left' && 'w-16',
+        align === 'right' && 'w-16 ml-auto',
+        inverted ? 'bg-gradient-to-r from-gold-400 to-amber-300 opacity-90' : 'bg-gradient-to-r from-emerald-800 via-gold-500 to-emerald-800 opacity-80',
       ]"
     />
 
     <!-- Subtitle / Description -->
     <p
       v-if="subtitle"
-      class="text-base sm:text-lg leading-relaxed font-normal text-balance mt-2"
-      :class="[inverted ? 'text-cream-200/85' : 'text-slate-600']"
+      class="text-base sm:text-lg leading-relaxed font-light text-balance mt-2"
+      :class="[inverted ? 'text-paper-200/85' : 'text-slate-600']"
     >
       {{ subtitle }}
     </p>

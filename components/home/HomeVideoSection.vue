@@ -8,13 +8,14 @@ const { settings } = useSiteSettings()
 </script>
 
 <template>
-  <section class="py-16 sm:py-24 bg-cream-50/60 border-t border-cream-200/80">
+  <section class="py-16 sm:py-24 bg-paper-100/70 border-b border-paper-300/80">
     <Container size="xl">
-      <!-- Section Title (h2 inside SectionTitle) -->
+      <!-- Section Title -->
       <SectionTitle
         badge="İki Kelam'dan"
-        title="İlim ve Sohbetten"
-        subtitle="İki Kelam'ın sohbet, ders ve faaliyetlerinden seçilmiş video kayıtları ve sohbet meclisleri."
+        badge-variant="gold"
+        title="İlim ve Sohbet Meclisi"
+        subtitle="İki Kelam'ın sohbet, ders ve faaliyetlerinden seçilmiş video kayıtları ve hikmet halkaları."
         align="center"
       />
 

@@ -120,20 +120,20 @@ function getIconForPath(path: string) {
     >
       <div
         v-if="isOpen"
-        class="fixed inset-y-0 right-0 z-50 w-full max-w-xs sm:max-w-sm bg-warm-white text-navy-950 shadow-2xl flex flex-col justify-between overflow-y-auto lg:hidden border-l border-cream-300"
+        class="fixed inset-y-0 right-0 z-50 w-full max-w-xs sm:max-w-sm bg-paper-100 text-obsidian-950 shadow-2xl flex flex-col justify-between overflow-y-auto lg:hidden border-l border-paper-300"
         role="dialog"
         aria-modal="true"
         aria-label="Mobil Gezinme Menüsü"
       >
         <!-- Drawer Header -->
-        <div class="p-5 border-b border-cream-200/80 flex items-center justify-between bg-cream-50/60">
+        <div class="p-5 border-b border-paper-300/80 flex items-center justify-between bg-paper-200/50">
           <NuxtLink to="/" class="flex items-center gap-2" @click="emit('close')">
             <AppLogo size="sm" :show-subtitle="false" />
           </NuxtLink>
 
           <button
             type="button"
-            class="p-2 rounded-lg text-slate-500 hover:text-navy-950 hover:bg-cream-200/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"
+            class="p-2.5 rounded-xl text-slate-600 hover:text-obsidian-950 hover:bg-paper-300/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 touch-target flex items-center justify-center"
             aria-label="Menüyü Kapat"
             @click="emit('close')"
           >
@@ -147,60 +147,65 @@ function getIconForPath(path: string) {
             v-for="item in menuItems"
             :key="item.path"
             :to="item.path"
-            class="flex items-center justify-between px-3.5 py-3 rounded-xl text-base font-medium transition-all group min-h-[48px]"
+            class="flex items-center justify-between px-4 py-3.5 rounded-2xl text-base font-semibold transition-all group min-h-[52px]"
             :class="[
               route.path === item.path
-                ? 'bg-emerald-800 text-white font-semibold shadow-sm'
-                : 'text-navy-900 hover:bg-cream-100 hover:text-emerald-800',
+                ? 'bg-obsidian-900 text-white shadow-soft'
+                : 'text-obsidian-900 hover:bg-paper-200 hover:text-obsidian-950',
             ]"
             @click="emit('close')"
           >
-            <div class="flex items-center gap-3">
-              <component
-                :is="getIconForPath(item.path)"
-                class="w-5 h-5 transition-transform group-hover:scale-110"
-                :class="route.path === item.path ? 'text-gold-300' : 'text-slate-500 group-hover:text-emerald-700'"
-              />
+            <div class="flex items-center gap-3.5">
+              <div
+                class="w-8 h-8 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                :class="route.path === item.path ? 'bg-white/10 text-gold-400' : 'bg-paper-200/90 text-slate-600 group-hover:text-emerald-800'"
+              >
+                <component
+                  :is="getIconForPath(item.path)"
+                  class="w-4.5 h-4.5"
+                />
+              </div>
               <span>{{ item.name }}</span>
             </div>
             <ChevronRight
               class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"
+              :class="route.path === item.path ? 'text-gold-400' : 'text-slate-400'"
             />
           </NuxtLink>
 
           <!-- Highlighted CTA (Bağış Yap) -->
-          <div class="pt-4 mt-3 border-t border-cream-200">
+          <div class="pt-4 mt-3 border-t border-paper-300">
             <NuxtLink
               to="/donation"
-              class="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl text-white font-semibold shadow-md bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 active:scale-[0.98] transition-all min-h-[48px]"
+              class="flex items-center justify-center gap-2.5 w-full py-4 px-4 rounded-2xl text-obsidian-950 font-bold shadow-soft hover:shadow-gold bg-gradient-to-r from-gold-300 via-amber-400 to-gold-400 active:scale-[0.98] transition-all min-h-[52px] border border-gold-400/40"
               @click="emit('close')"
             >
-              <Heart class="w-5 h-5 fill-current" />
-              <span>Bağış Yap</span>
+              <Heart class="w-5 h-5 fill-obsidian-950" />
+              <span>İlme Destek Ol (Bağış Yap)</span>
             </NuxtLink>
           </div>
         </div>
 
         <!-- Drawer Footer / Quick Info -->
-        <div class="p-5 border-t border-cream-200 bg-cream-50/70 text-xs text-slate-600 space-y-2.5">
-          <div class="flex items-start gap-2">
+        <div class="p-5 border-t border-paper-300 bg-paper-200/60 text-xs text-slate-600 space-y-3">
+          <div class="flex items-start gap-2.5">
             <MapPin class="w-4 h-4 text-emerald-800 shrink-0 mt-0.5" />
             <span>Fatih, İstanbul / Türkiye</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2.5">
             <Mail class="w-4 h-4 text-emerald-800 shrink-0" />
             <a href="mailto:bilgi@ikikelam.org.tr" class="hover:underline">bilgi@ikikelam.org.tr</a>
           </div>
 
           <!-- Social Media Follow -->
-          <div class="flex items-center justify-between pt-2 border-t border-cream-200">
-            <span class="text-[11px] font-medium text-slate-500">Bizi Takip Edin:</span>
+          <div class="flex items-center justify-between pt-2 border-t border-paper-300/80">
+            <span class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Bizi Takip Edin:</span>
             <div class="flex items-center gap-2">
               <a
                 :href="settings.youtubeUrl || 'https://www.youtube.com/@ikikelamresmi'"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-1.5 rounded-lg text-slate-600 hover:text-red-600 hover:bg-cream-200/70 transition-colors"
+                class="w-8 h-8 rounded-lg flex items-center justify-center bg-white text-slate-600 hover:text-red-600 border border-paper-300/80 transition-colors shadow-2xs"
                 aria-label="İki Kelam YouTube Kanalı"
                 title="İki Kelam YouTube Kanalı"
               >
@@ -210,7 +215,7 @@ function getIconForPath(path: string) {
                 :href="settings.instagramUrl || 'https://instagram.com/ikikelamresmi'"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-1.5 rounded-lg text-slate-600 hover:text-pink-600 hover:bg-cream-200/70 transition-colors"
+                class="w-8 h-8 rounded-lg flex items-center justify-center bg-white text-slate-600 hover:text-pink-600 border border-paper-300/80 transition-colors shadow-2xs"
                 aria-label="İki Kelam Instagram Hesabı"
                 title="İki Kelam Instagram Hesabı"
               >
@@ -219,7 +224,7 @@ function getIconForPath(path: string) {
             </div>
           </div>
 
-          <div class="pt-1 text-[11px] text-slate-600">
+          <div class="pt-1 text-[11px] text-slate-500 font-medium">
             İki Kelam İlim ve Kültür Derneği
           </div>
         </div>

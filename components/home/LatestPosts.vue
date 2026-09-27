@@ -21,11 +21,12 @@ const posts = computed(() => response.value?.data || [])
 </script>
 
 <template>
-  <section class="py-16 sm:py-24 bg-white border-b border-cream-200 select-none">
+  <section class="py-16 sm:py-24 bg-white border-b border-paper-300/80 select-none">
     <Container size="xl">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <SectionTitle
           badge="İlmi Neşriyat"
+          badge-variant="gold"
           title="Son Makaleler & Yazılar"
           subtitle="Medresemiz hocaları ve ilim ehlinin fıkıh, akaid ve maneviyat üzerine kaleme aldığı metinler."
           align="left"
@@ -37,6 +38,7 @@ const posts = computed(() => response.value?.data || [])
             variant="outline"
             size="md"
             :icon-right="ArrowRight"
+            class="bg-paper-100 hover:bg-paper-200 border-paper-300 text-obsidian-900"
           >
             Tüm Yazıları İncele
           </Button>
@@ -48,7 +50,7 @@ const posts = computed(() => response.value?.data || [])
         <div
           v-for="i in 3"
           :key="i"
-          class="rounded-2xl bg-cream-50 border border-cream-200 overflow-hidden animate-pulse"
+          class="rounded-3xl bg-paper-100 border border-paper-300 overflow-hidden animate-pulse shadow-soft"
         >
           <div class="aspect-[16/10] bg-slate-200" />
           <div class="p-6 space-y-3">
@@ -69,7 +71,7 @@ const posts = computed(() => response.value?.data || [])
       </div>
 
       <!-- Empty State -->
-      <div v-else class="text-center py-12 px-4 rounded-2xl bg-cream-50 border border-cream-200 text-slate-500 text-sm">
+      <div v-else class="text-center py-12 px-4 rounded-3xl bg-paper-100 border border-paper-300 text-slate-500 text-sm shadow-soft">
         Henüz yayınlanmış ilmi makale bulunamadı.
       </div>
     </Container>
