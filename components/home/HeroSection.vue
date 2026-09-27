@@ -11,8 +11,7 @@ import {
 import Container from '~/components/common/Container.vue'
 import Button from '~/components/common/Button.vue'
 
-const heroImage =
-  'https://images.unsplash.com/photo-1584286595398-a59f21d313f5?auto=format&fit=crop&w=1200&q=80'
+const heroImage = '/images/hero-banner.jpg'
 </script>
 
 <template>
