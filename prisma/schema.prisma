@@ -1,0 +1,200 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ------------------------------------------------------
+// ENUMS
+// ------------------------------------------------------
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ContactType {
+  GENERAL
+  COURSE_INQUIRY
+  DONATION
+  VOLUNTEER
+  OTHER
+}
+
+enum MessageStatus {
+  UNREAD
+  READ
+  ARCHIVED
+  REPLIED
+}
+
+enum GalleryCategory {
+  MEDRESE_LIFE
+  CLASSES
+  EVENTS
+  LIBRARY
+  HISTORICAL
+  GENERAL
+}
+
+// ------------------------------------------------------
+// MODELS
+// ------------------------------------------------------
+
+/// Yönetici ve editör kullanıcılar
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole @default(ADMIN)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("admin_users")
+}
+
+/// Yazı ve içerik kategorileri (Faaliyetler)
+model Category {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  description      String?  @db.Text
+  shortDescription String?  @db.Text
+  image            String?
+  icon             String?
+  isActive         Boolean  @default(true)
+  sortOrder        Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Kategori silindiğinde bağlı yazılar korunur (SetNull)
+  posts Post[]
+
+  @@index([slug])
+  @@index([isActive])
+  @@index([sortOrder])
+  @@map("categories")
+}
+
+/// Makaleler, ilmi yazılar ve duyurular
+model Post {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  excerpt     String?    @db.Text
+  content     String     @db.Text
+  coverImage  String?
+  status      PostStatus @default(DRAFT)
+  publishedAt DateTime?
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([categoryId])
+  @@map("posts")
+}
+
+/// Medrese ve dernek fotoğraf galerisi
+model GalleryImage {
+  id          String          @id @default(cuid())
+  title       String
+  imageUrl    String
+  storagePath String?
+  category    GalleryCategory @default(GENERAL)
+  altText     String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([category])
+  @@map("gallery_images")
+}
+
+/// Haftalık düzenli ders ve faaliyet takvimi
+model WeeklySchedule {
+  id             String   @id @default(cuid())
+  dayOfWeek      Int // 1: Pazartesi, 2: Salı, ..., 7: Pazar
+  startTime      String // Örn: "14:00"
+  endTime        String // Örn: "16:00"
+  lessonName     String
+  teacher        String
+  targetAudience String? // Örn: "Talebeler", "Umuma Açık", "Gençler"
+  description    String?  @db.Text
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([dayOfWeek])
+  @@index([isActive])
+  @@map("weekly_schedules")
+}
+
+/// İletişim formu mesajları ve talepler
+model ContactMessage {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String        @db.Text
+  type      ContactType   @default(GENERAL)
+  status    MessageStatus @default(UNREAD)
+  createdAt DateTime      @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_messages")
+}
+
+/// Site genel iletişim ve kurum ayarları (Tekil kayıt / Singleton)
+model ContactSettings {
+  id                    String   @id @default(cuid())
+  organizationName      String   @default("İki Kelam İlim ve Kültür Derneği")
+  description           String?  @db.Text
+  phone                 String?  @default("+90 500 000 00 00")
+  whatsapp              String?  @default("+90 500 000 00 00")
+  email                 String?  @default("bilgi@ikikelam.org.tr")
+  address               String?  @default("Ali Kuşçu Mah. Medrese Sok. No: 12")
+  district              String?  @default("Fatih")
+  city                  String?  @default("İstanbul")
+  postalCode            String?  @default("34083")
+  googleMapsUrl         String?  @db.Text
+  googleMapsEmbedUrl    String?  @db.Text
+  transportationPublic  String?  @db.Text
+  transportationPrivate String?  @db.Text
+  transportationNotes   String?  @db.Text
+  visitDays                  String?  @default("Pazartesi – Cumartesi")
+  visitHours                 String?  @default("09:00 – 18:00")
+
+  // Sosyal Medya ve YouTube Entegrasyonu
+  youtubeUrl                 String?  @default("https://www.youtube.com/@ikikelamresmi")
+  instagramUrl               String?  @default("https://instagram.com/ikikelamresmi")
+  featuredYoutubeVideoId     String?  @default("CV797WTQ7b8")
+  featuredYoutubeTitle       String?  @default("Kur'an'da Heisenberg Belirsizlik İlkesi")
+  featuredYoutubeDescription String?  @db.Text
+
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+
+  @@map("contact_settings")
+}

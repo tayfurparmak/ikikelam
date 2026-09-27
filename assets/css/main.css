@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FAF9F6;
+    color: #0b1f33;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  ::selection {
+    background-color: #15803d;
+    color: #ffffff;
+  }
+}
+
+/* Rich Content Article Styling */
+.rich-content {
+  color: #334155;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+
+.rich-content p {
+  margin-bottom: 1.35rem;
+  font-weight: 300;
+}
+
+.rich-content h2 {
+  font-family: 'Amiri', 'Playfair Display', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0b1f33;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.rich-content h3 {
+  font-family: 'Amiri', 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #14532d;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.rich-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0b1f33;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rich-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rich-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rich-content li {
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.rich-content blockquote {
+  border-left: 4px solid #15803d;
+  background-color: #faf8f5;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #1e293b;
+}
+
+.rich-content a {
+  color: #15803d;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.rich-content a:hover {
+  color: #052e16;
+}
+
+.rich-content strong,
+.rich-content b {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.rich-content img {
+  border-radius: 1rem;
+  margin: 2rem auto;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  max-width: 100%;
+  height: auto;
+}
