@@ -54,25 +54,26 @@ const fallbackImage =
   <article
     class="flex flex-col rounded-2xl bg-white border border-cream-200/90 shadow-xs hover:shadow-lg hover:border-emerald-700/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden group h-full"
   >
-    <!-- Cover Image with Link -->
-    <NuxtLink :to="postUrl" class="relative block overflow-hidden bg-cream-100" :class="compact ? 'aspect-[16/9]' : 'aspect-[16/10]'">
-      <img
-        :src="post.coverImage || fallbackImage"
-        :alt="post.title"
-        loading="lazy"
-        decoding="async"
-        class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-      >
+    <!-- Cover Image & Category Container -->
+    <div class="relative overflow-hidden bg-cream-100" :class="compact ? 'aspect-[16/9]' : 'aspect-[16/10]'">
+      <NuxtLink :to="postUrl" class="block w-full h-full" :aria-label="post.title">
+        <img
+          :src="post.coverImage || fallbackImage"
+          :alt="post.title"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        >
+      </NuxtLink>
       <!-- Category Badge -->
       <NuxtLink
         v-if="showCategory && post.category?.name"
         :to="`/activities/${post.category.slug}`"
         class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-xs font-semibold bg-navy-950/85 hover:bg-emerald-800 text-white backdrop-blur-sm shadow-xs transition-colors z-10"
-        @click.stop
       >
         {{ post.category.name }}
       </NuxtLink>
-    </NuxtLink>
+    </div>
 
     <!-- Content Body -->
     <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
