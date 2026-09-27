@@ -17,7 +17,7 @@ const { settings } = useSiteSettings()
 
 const quickLinks = [
   { name: 'Ana Sayfa', path: '/' },
-  { name: 'Hakkımızda', path: '/hakkimizda' },
+  { name: 'Biz Kimiz?', path: '/biz-kimiz' },
   { name: 'Faaliyetlerimiz', path: '/activities' },
   { name: 'Galeri', path: '/gallery' },
   { name: 'Haftalık Program', path: '/schedule' },
@@ -60,7 +60,7 @@ const address = computed(() => {
               <span>İlme Destek Olun</span>
             </NuxtLink>
             <NuxtLink
-              to="/hakkimizda"
+              to="/biz-kimiz"
               class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
             >
               <span>Vakfımız</span>

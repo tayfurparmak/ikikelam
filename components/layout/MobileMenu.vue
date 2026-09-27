@@ -81,7 +81,7 @@ onUnmounted(() => {
 // İkon eşleme
 function getIconForPath(path: string) {
   if (path === '/') return Home
-  if (path.includes('hakkimizda') || path.includes('about')) return Info
+  if (path.includes('biz-kimiz') || path.includes('hakkimizda') || path.includes('about')) return Info
   if (path.includes('faaliyet') || path.includes('activities')) return BookOpen
   if (path.includes('program') || path.includes('schedule')) return Calendar
   if (path.includes('galeri') || path.includes('gallery')) return Image

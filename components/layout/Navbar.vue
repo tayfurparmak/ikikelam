@@ -14,7 +14,7 @@ const route = useRoute()
 
 const navItems = [
   { name: 'Ana Sayfa', path: '/' },
-  { name: 'Hakkımızda', path: '/hakkimizda' },
+  { name: 'Biz Kimiz?', path: '/biz-kimiz' },
   { name: 'Faaliyetlerimiz', path: '/activities' },
   { name: 'Galeri', path: '/gallery' },
   { name: 'Haftalık Program', path: '/schedule' },
@@ -40,7 +40,7 @@ function isRouteActive(path: string) {
   if (path === '/') return route.path === '/'
   return (
     route.path.startsWith(path) ||
-    (path === '/hakkimizda' && route.path.startsWith('/about')) ||
+    (path === '/biz-kimiz' && (route.path.startsWith('/hakkimizda') || route.path.startsWith('/about'))) ||
     (path === '/activities' && route.path.startsWith('/faaliyetlerimiz')) ||
     (path === '/gallery' && route.path.startsWith('/galeri')) ||
     (path === '/schedule' && route.path.startsWith('/program')) ||

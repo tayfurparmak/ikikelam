@@ -198,3 +198,135 @@ model ContactSettings {
 
   @@map("contact_settings")
 }
+
+/// Biz Kimiz? / Kurumsal Genel Sayfa Ayarları (Tekil kayıt / Singleton)
+model AboutPage {
+  id               String   @id @default("main")
+  // 1. Biz Kimiz?
+  title            String   @default("Biz Kimiz?")
+  subtitle         String?  @default("İlim, irfan ve muhabbet yolunda birlikte.")
+  intro            String?  @db.Text
+  content          String?  @db.Text
+  image            String?
+  videoUrl         String?
+  buttonText       String?  @default("Daha Fazla Bilgi")
+  buttonUrl        String?  @default("/biz-kimiz")
+  isActive         Boolean  @default(true)
+
+  // 2. Misyonumuz
+  missionTitle     String   @default("Misyonumuz")
+  missionSubtitle  String?  @default("Kadim medrese mirasını günümüz idrakiyle buluşturmak.")
+  missionContent   String?  @db.Text
+  missionImage     String?
+  missionIcon      String?  @default("Compass")
+  missionActive    Boolean  @default(true)
+
+  // 3. Vizyonumuz
+  visionTitle      String   @default("Vizyonumuz")
+  visionSubtitle   String?  @default("İlim ve faziletle mücehhez bir nesil yetiştirmek.")
+  visionContent    String?  @db.Text
+  visionImage      String?
+  visionIcon       String?  @default("Eye")
+  visionActive     Boolean  @default(true)
+
+  // Bölüm Aktif / Pasif Kontrolleri
+  valuesActive     Boolean  @default(true)
+  whyUsActive      Boolean  @default(true)
+  historyActive    Boolean  @default(true)
+  servicesActive   Boolean  @default(true)
+  faqActive        Boolean  @default(true)
+
+  // SEO Yönetimi
+  seoTitle         String?  @default("Biz Kimiz? | İki Kelam")
+  seoDescription   String?  @default("İki Kelam'ın misyonu, vizyonu, değerleri, faaliyetleri ve medrese tarihçesi.")
+  seoOgImage       String?
+  seoCanonical     String?
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("about_page")
+}
+
+/// 4. Değerlerimiz (Kart Yapısı)
+model AboutValue {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  icon        String?  @default("Heart")
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isActive])
+  @@map("about_values")
+}
+
+/// 5. Neden İki Kelam? (Yaklaşım ve Farklılık Kartları)
+model WhyUsItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  icon        String?  @default("CheckCircle")
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isActive])
+  @@map("about_why_us")
+}
+
+/// 6. Medresemizin Hikâyesi (Timeline / Tarihçe)
+model HistoryItem {
+  id          String   @id @default(cuid())
+  year        String   // Örn: "2020", "2022", "2024"
+  title       String
+  description String   @db.Text
+  image       String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isActive])
+  @@map("about_history")
+}
+
+/// 7. Hizmetlerimiz (Kart Tabanlı Hizmetler Bölümü)
+model AboutServiceItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  icon        String?  @default("BookOpen")
+  image       String?
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isActive])
+  @@map("about_services")
+}
+
+/// 8. Sıkça Sorulan Sorular (FAQ)
+model FaqItem {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String?  @default("Genel")
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sortOrder])
+  @@index([isActive])
+  @@map("faq_items")
+}
+

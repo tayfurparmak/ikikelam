@@ -11,6 +11,7 @@ import {
   Settings,
   LogOut,
   User,
+  Users,
   X,
 } from 'lucide-vue-next'
 import AppLogo from '~/components/common/AppLogo.vue'
@@ -28,6 +29,7 @@ const { user, logout, isLoading } = useAdminAuth()
 
 const links = [
   { label: 'Dashboard', to: '/admin', icon: LayoutDashboard },
+  { label: 'Biz Kimiz', to: '/admin/about', icon: Users },
   { label: 'İçerikler', to: '/admin/posts', icon: FileText },
   { label: 'Faaliyetler', to: '/admin/activities', icon: Compass },
   { label: 'Kategoriler', to: '/admin/categories', icon: FolderTree },
